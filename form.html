@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <style>
+        body{
+            background-color:whitesmoke;
+            padding: 5%;
+            margin-left: 14px;
+            
+        }
+        div{
+            width: 75%;
+        }
+        h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Student Form</h1>
+        <p>Fill in this form to register</p><br>
+        <form action="/submit" method="post">
+        <label>First Name:</label> 
+        <input name="first" required><br><br>
+        <label>Last Name:</label> 
+        <input name="last"  required><br><br>
+        <label>Email:</label> 
+        <input name="email" type="email" required><br><br>
+        <label>Date of Birth:</label> 
+        <input name="dob" type="date" required><br><br>
+        <label>Gender:</label><br> 
+        <select name="gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+        </select><br><br>
+        <button type="submit">Save</button>
+        </form>
+    </div>
+<!-- </table>
+    {{range .}}
+        <tr>
+            <td>{{.FirstName}}</td>
+            <td>{{.LastName}}</td>
+            <td>{{.Email}}</td>
+            <td>{{.DOB.Format "2006-01-02"}}</td>
+            <td>{{.Gender}}</td>
+        </tr>
+    {{end}}
+</table> -->
+</body>
+</html>
