@@ -18,16 +18,12 @@ type Student struct {
 }
 
 var (
-
 	tpl *template.Template
 )
 
-func FormHandler(w http.ResponseWriter, r *http.Request) {
-	tpl = template.Must(template.ParseFiles("form.html"))
-
-	if err := tpl.Execute(w, nil); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+func RegisterHandler(w http.ResponseWriter, r *http.Request) {
+	tpl = template.Must(template.ParseFiles("templates/register.html"))
+	tpl.Execute(w, nil)
 }
 
 const (
@@ -64,8 +60,8 @@ Your Team`,
 }
 
 func SubmitHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/", http.StatusSeeOther)
+	if r.Method == http.MethodPost {
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
 		return
 	}
 
@@ -96,4 +92,10 @@ func SubmitHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Fprintf(w, "Thanks %s! Your information has been saved and emailed.", s.FirstName)
+
+}
+
+func LoginHandler(w http.ResponseWriter, r *http.Request){
+	tpl = template.Must(template.ParseFiles("templates/login.html"))
+	tpl.Execute(w, nil)
 }
