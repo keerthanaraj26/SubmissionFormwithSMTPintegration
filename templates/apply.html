@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply for Course</title>
+    <style>
+        body { font-family: Arial; background-color: #f0f0f0; padding: 40px; }
+        form { background: white; padding: 20px; width: 300px; margin: auto; box-shadow: 0 0 10px gray; }
+        select, button { width: 100%; padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <form action="/apply" method="post">
+        <h2>Apply for Course</h2>
+        <label for="course_id">Select Course:</label>
+        <select name="course_id" id="course_id">
+            {{range .Courses}}
+                <option value="{{.ID}}">{{.Name}}</option>
+            {{end}}
+        </select><br><br>
+
+        <label for="email">Your Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <button type="submit">Apply</button>
+    </form>
+</body>
+</html>
