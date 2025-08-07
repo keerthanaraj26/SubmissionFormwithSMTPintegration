@@ -128,5 +128,6 @@ func LoginHandler(w http.ResponseWriter, r *http.Request){
 			http.Error(w, "Invalid password", http.StatusUnauthorized)
 			return
 		}
+		http.Redirect(w, r, "/apply", http.StatusSeeOther)
 	}
 }
