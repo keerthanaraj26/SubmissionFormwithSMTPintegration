@@ -48,5 +48,14 @@
 
         <button type="submit">Apply</button>
     </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("success") === "true") {
+                alert("Application Submitted Successfully!");
+            }
+        });
+    </script>
+
 </body>
 </html>

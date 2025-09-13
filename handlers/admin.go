@@ -8,7 +8,6 @@ import (
 	"net/smtp"
 	"studentform/database"
 	
-
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -100,7 +99,7 @@ func SubmitHandler(w http.ResponseWriter, r *http.Request) {
 	if err := sendEmail(s.Email, s); err != nil {
 		log.Println("Email sending failed:", err)
 	}
-	log.Printf(`Thanks %s! Your information has been saved and emailed.`, s.FirstName)
+	log.Printf(`Registration Confirmation. Thanks %s! Your information has been saved and emailed.`, s.FirstName)
 
 	http.Redirect(w, r, "/login", http.StatusSeeOther)
 }
@@ -130,4 +129,5 @@ func LoginHandler(w http.ResponseWriter, r *http.Request){
 		}
 		http.Redirect(w, r, "/apply", http.StatusSeeOther)
 	}
+	
 }
